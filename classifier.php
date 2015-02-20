@@ -9,7 +9,7 @@ $pattern = '/(.*)S[0-9]{1,2}E[0-9]{1,2}.*/i';
 while (false !== ($file = readdir($dir))) {
         preg_match($pattern, $file, $match);
         if (count($match)) {
-                $show_name = trim(str_replace('.', ' ', $match[1]));
+                $show_name = ucfirst(trim(str_replace('.', ' ', $match[1])));
                 if(!file_exists("$folder/$show_name")){
                         mkdir("$folder/$show_name", 0777, true);
                 }
